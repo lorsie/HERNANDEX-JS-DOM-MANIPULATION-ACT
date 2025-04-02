@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="images/logo.png" sizes="64x64">
+    <title>My Bucketlist</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #EABDE6;
+            text-align: center;
+        }
+        header {
+            margin-bottom: 16px;    
+            background-color: #AA60C8;
+            padding: 16px;
+            text-align: right;
+        }
+        header a {
+            color: rgb(0, 0, 0);
+            text-decoration: none; 
+            margin: 0 10px; 
+            font-size: 18px;
+            transition: color 0.3s ease; 
+        }
+        header a:hover {
+            color: #ffffff; 
+        }
+        .container {
+            display: inline-block;
+            background-color: #D69ADE;
+            padding: 20px;
+            border-radius: 10px;
+            border:  2px solid;
+            text-align: left;
+            width: 400px;
+        }
+        input {
+            width: 250px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid;
+            margin-top: 10px;
+        }
+        button {
+            width: 220px;
+            height: 50px;
+            font-size: 1em;
+            margin-top: 10px;
+            background-color: #D69ADE;
+            border-radius: 10px;
+            border: 2px solid;
+        }
+        button:hover {
+            background-color: #a9898c;
+        }
+        #input-section {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+   <header>
+        <a href="index.html">Bucketlist</a>
+        <a href="bibleverse.html">Bible Verse</a>
+        <a href="login.html">Login</a>
+    </header>
+
+    <div class="container">
+        <div id="content-list">
+            <h2 id="title">Hi, I'm Lorah Jyn!</h2>
+            <h3>Here are the things I want to do in my Lifetime:</h3>
+            <ul>
+                <li>
+                    I want to travel abroad with my Family.
+                </li>
+                <li>
+                    I want to learn at least 3 Languages.
+                </li>
+                <li>
+                    I want to travel with my Friends also with Myself.
+                </li>
+                <li>
+                    I want to attend at least one BTS Concert/Or any Concert.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- input -->
+    <p>
+    Add New: <input type="text" id="newGoal" placeholder="bucketlist">
+    </p>
+
+    <!-- buttons -->
+    <button id="demoButton" onclick="addNewElement()">Add new item on the list</button>
+    <button id="demoButton" onclick="changeFont()">Change font family</button>
+    <button id="demoButton" onclick="changeToBold()">Change font weight</button>
+
+    <script>
+        function changeFont() {
+            let fonts = ['serif', 'sans-serif', 'monospace'];
+            let container = document.querySelector('.container');
+            let currentFont = container.style.fontFamily;
+            let nextFont = fonts[(fonts.indexOf(currentFont) + 1) % fonts.length];
+            container.style.fontFamily = nextFont;
+        }
+
+        function changeToBold() {
+            document.querySelector('.container').style.fontWeight = 'bold';
+        }
+
+        function addNewElement() {
+            var myInput = document.getElementById("newGoal").value;
+            var ul = document.querySelector('ul');
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(myInput));
+            ul.appendChild(li);
+        }
+    </script>
+
+</body>
+</html>

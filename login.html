@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="images/logo.png" sizes="64x64">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EABDE6;
+        }
+        header {
+            margin-bottom: 16px;    
+            background-color: #AA60C8;
+            padding: 16px;
+            text-align: right;
+        }
+        header a {
+            color: rgb(0, 0, 0);
+            text-decoration: none; 
+            margin: 0 10px; 
+            font-size: 18px;
+            transition: color 0.3s ease; 
+        }
+        header a:hover {
+            color: #ffffff; 
+        }
+        #form-container {
+            width: 320px;
+            background: #D69ADE;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            font-size: 1em;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #040303;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #AA60C8;
+            color: rgb(0, 0, 0);
+            padding: 12px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        input[type="submit"]:hover {
+            background-color: #693382;
+        }
+    </style>
+</head>
+<body>
+   <header>
+        <a href="index.html">Bucketlist</a>
+        <a href="bibleverse.html">Bible Verse</a>
+        <a href="login.html">Login</a>
+    </header>
+
+    <!-- input -->
+    <div id="form-container">
+        <form id="form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('#form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.querySelector('#username').value;
+            const password = document.querySelector('#password').value;
+
+            // password validation
+            const isValidPassword = password.length >= 8 && /[A-Z]/.test(password) && /[a-z]/.test(password);
+
+            if (isValidPassword) {
+                alert("Welcome, " + username + "!");
+                console.log("Username:", username);
+                console.log("Password:", password);
+            } else {
+                alert("Password must be at least 8 characters long and contain both uppercase and lowercase letters.");
+                console.log("Username:", username);
+                console.log("Password:", password);
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="images/logo.png" sizes="64x64">
+    <title>Bible Verse</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #EABDE6;
+        }
+        header {
+            margin-bottom: 16px;    
+            background-color: #AA60C8;
+            padding: 16px;
+            text-align: right;
+        }
+        header a {
+            color: rgb(4, 2, 2);
+            text-decoration: none; 
+            margin: 0 10px; 
+            font-size: 18px;
+            transition: color 0.3s ease; 
+        }
+        header a:hover {
+            color: #ffffff; 
+        }
+        .styled {
+            font-family: gabriola;
+            font-size: 2.5em;
+            color: #704241;
+            font-weight: 600;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
+            border: solid 2px;
+            padding: 16px 32px;
+            margin-top: 16px;
+            background-image: url(images/bg.jpg);
+
+            background-image: url(images/bg.jpg);
+            background-size: cover; /* Makes the image cover the entire element */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-attachment: fixed; /* Keeps the image in place while scrolling */
+        }
+        .italic-title {
+            font-style: italic;
+            font-family: serif;
+            margin-bottom: 10px;
+        }
+        .bg {
+            background-color: #c8aeb0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">Bucketlist</a>
+        <a href="bibleverse.html">Bible Verse</a>
+        <a href="login.html">Login</a>
+    </header>
+
+    <button id="addBtn" onclick="toggleDesign(event, true)">Add Design</button>
+    <button id="removeBtn" onclick="toggleDesign(event, false)">Remove Design</button>
+
+    <div class="container">
+        <div id="content-list">
+            <h2 id="title">Psalms 121:7-8</h2>
+            <p>"The LORD will keep you from all harm— he will watch over your life; <br>the LORD will watch over your coming and going both now and forevermore."
+            </p>
+        </div>
+    </div>
+
+    <!-- functions -->
+    <script>
+        function toggleDesign(event, add) {
+            const container = document.querySelector('.container');
+            const title = document.querySelector('#title');
+            const buttons = document.querySelectorAll('button');
+            const clickedButton = event.target;
+
+            buttons.forEach(btn => btn.classList.remove('bg'));
+
+            if (add) {
+                container.classList.add('styled');
+                title.classList.add('italic-title');
+            } else {
+                container.classList.remove('styled');
+                title.classList.remove('italic-title');
+            }
+
+            clickedButton.classList.add('bg');
+        }
+    </script>
+
+</body>
+</html>
